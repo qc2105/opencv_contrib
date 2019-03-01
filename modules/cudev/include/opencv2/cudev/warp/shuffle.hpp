@@ -167,7 +167,7 @@ __device__ __forceinline__ T compatible_shfl_up(T val, uint delta, int width = w
 #else // __CUDACC_VER_MAJOR__ < 9
 
 #if CV_CUDEV_ARCH >= 700
-    return shfl_up_sync(0xFFFFFFFFU, val, delta, width);
+    return __shfl_up_sync(0xFFFFFFFFU, val, delta, width);
 #else
     const int block_size = Block::blockSize();
     const int residual = block_size & (warpSize - 1);
