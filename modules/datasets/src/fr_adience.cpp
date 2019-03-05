@@ -89,7 +89,7 @@ void FR_adienceImp::loadFile(const string &filename, vector< Ptr<FR_adienceObj> 
     while (getline(infile, line))
     {
         vector<string> elems;
-        split(line, elems, ',');
+        split(line, elems, '\t');
 
         string user_id = elems[0];
         string original_image = elems[1];
