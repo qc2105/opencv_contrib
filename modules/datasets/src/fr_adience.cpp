@@ -116,6 +116,13 @@ void FR_adienceImp::loadFile(const string &filename, vector< Ptr<FR_adienceObj> 
 
         Ptr<FR_adienceObj> curr(new FR_adienceObj);
         curr->user_id = user_id;
+
+        string prefix = "coarse_tilt_aligned_face.";
+        string face_id_str(elems[2].c_str());
+        string to_remove = prefix + face_id_str + ".";
+
+        original_image.erase(0, to_remove.length());
+
         curr->original_image = original_image;
         curr->face_id = atoi(elems[2].c_str());
         curr->age = elems[3];
